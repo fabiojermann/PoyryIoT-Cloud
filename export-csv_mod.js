@@ -24,7 +24,7 @@
     Highcharts.setOptions({
         lang: {
             downloadCSV: 'Download CSV',
-            downloadXLS: 'Download XLS',
+            //downloadXLS: 'Download XLS',
             viewData: 'View data table'
         }
     });
