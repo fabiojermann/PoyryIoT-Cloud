@@ -275,7 +275,7 @@
 
     /**
      * Call this on click of 'Download XLS' button
-     */
+     
     Highcharts.Chart.prototype.downloadXLS = function () {
         var uri = 'data:application/vnd.ms-excel;base64,',
             template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">' +
@@ -298,7 +298,7 @@
             template,
             'application/vnd.ms-excel'
         );
-    };
+    };*/
 
     /**
      * View the data in a table below the chart
