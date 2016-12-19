@@ -322,10 +322,12 @@
         Highcharts.getOptions().exporting.buttons.contextButton.menuItems.push({
             textKey: 'downloadCSV',
             onclick: function () { this.downloadCSV(); }
-        }, {
+        }, 
+                                                                               /**{
             textKey: 'downloadXLS',
             onclick: function () { this.downloadXLS(); }
-        }, {
+        },*/
+            {
             textKey: 'viewData',
             onclick: function () { this.viewData(); }
         });
