@@ -92,7 +92,7 @@
                 }
 
                 each(series.options.data, function (point, pIdx) {
-                    var key = requireSorting ? point.x : pIdx,
+                    var key = pIdx, //var key = requireSorting ? point.x : pIdx,
                         prop,
                         val;
 
