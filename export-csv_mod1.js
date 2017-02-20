@@ -200,11 +200,11 @@
                 if (typeof val === "string") {
                     val = '"' + val + '"';
                 }
-                if (typeof val === 'number') {
-                    if (n === ',') {
-                        val = val.toString().replace(".", ",");
-                    }
-                }
+                //if (typeof val === 'number') {
+                    //if (n === ',') {
+                    //    val = val.toString().replace(".", ",");
+                    //}
+                //}
                 row[j] = val;
             }
             // Add the values
