@@ -24,7 +24,7 @@
     Highcharts.setOptions({
         lang: {
             downloadCSV: 'Download CSV',
-            downloadXLS: 'Download XLS',
+            //downloadXLS: 'Download XLS',
             viewData: 'View data table'
         }
     });
@@ -319,7 +319,7 @@
     /**
      * Call this on click of 'Download XLS' button
      */
-    Highcharts.Chart.prototype.downloadXLS = function () {
+    /*Highcharts.Chart.prototype.downloadXLS = function () {
         var uri = 'data:application/vnd.ms-excel;base64,',
             template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">' +
                 '<head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>' +
@@ -341,7 +341,7 @@
             template,
             'application/vnd.ms-excel'
         );
-    };
+    };*/
 
     /**
      * View the data in a table below the chart
@@ -370,9 +370,9 @@
             textKey: 'downloadCSV',
             onclick: function () { this.downloadCSV(); }
         }, {
-            textKey: 'downloadXLS',
+            /*textKey: 'downloadXLS',
             onclick: function () { this.downloadXLS(); }
-        }, {
+        }, {*/
             textKey: 'viewData',
             onclick: function () { this.viewData(); }
         });
