@@ -24,7 +24,7 @@
     Highcharts.setOptions({
         lang: {
             downloadCSV: 'Download CSV',
-            //downloadXLS: 'Download XLS',
+            downloadXLS: 'Download XLS',
             viewData: 'View data table'
         }
     });
@@ -91,7 +91,7 @@
                     j = j + 1;
                 }
 
-                each(series.options.data, function (point, pIdx) {
+                each(series.points, function (point, pIdx) {
                     var key = requireSorting ? point.x : pIdx,
                         prop,
                         val;
@@ -114,7 +114,7 @@
 
                     while (j < valueCount) {
                         prop = pointArrayMap[j]; // y, z etc
-                        val = point[1];
+                        val = point[prop];
                         rows[key][i + j] = pick(categoryMap[prop][val], val); // Pick a Y axis category if present
                         j = j + 1;
                     }
@@ -200,11 +200,11 @@
                 if (typeof val === "string") {
                     val = '"' + val + '"';
                 }
-                //if (typeof val === 'number') {
-                    //if (n === ',') {
-                    //    val = val.toString().replace(".", ",");
-                    //}
-                //}
+                if (typeof val === 'number') {
+                    if (n === ',') {
+                        val = val.toString().replace(".", ",");
+                    }
+                }
                 row[j] = val;
             }
             // Add the values
@@ -288,7 +288,7 @@
             a.href = href;
             a.target = '_blank';
             a.download = name + '.' + extension;
-            document.body.appendChild(a);
+            chart.container.append(a); // #111
             a.click();
             a.remove();
 
@@ -319,7 +319,7 @@
     /**
      * Call this on click of 'Download XLS' button
      */
-    /*Highcharts.Chart.prototype.downloadXLS = function () {
+    Highcharts.Chart.prototype.downloadXLS = function () {
         var uri = 'data:application/vnd.ms-excel;base64,',
             template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40">' +
                 '<head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet>' +
@@ -341,7 +341,7 @@
             template,
             'application/vnd.ms-excel'
         );
-    };*/
+    };
 
     /**
      * View the data in a table below the chart
@@ -370,9 +370,9 @@
             textKey: 'downloadCSV',
             onclick: function () { this.downloadCSV(); }
         }, {
-            /*textKey: 'downloadXLS',
+            textKey: 'downloadXLS',
             onclick: function () { this.downloadXLS(); }
-        }, {*/
+        }, {
             textKey: 'viewData',
             onclick: function () { this.viewData(); }
         });
