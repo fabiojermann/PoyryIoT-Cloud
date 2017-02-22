@@ -92,7 +92,7 @@
                 }
 
                 each(series.options.data, function (point, pIdx) {
-                    var key = pIdx, //var key = requireSorting ? point.x : pIdx,
+                    var key = requireSorting ? point.x : pIdx,
                         prop,
                         val;
 
@@ -102,10 +102,10 @@
                         // Generate the row
                         rows[key] = [];
                         // Contain the X values from one or more X axes
-                        // rows[key].xValues = [];
+                        rows[key].xValues = [];
                     }
-                    rows[key].x = point[0]; // rows[key].x = point.x;
-                    // rows[key].xValues[xAxisIndex] = point.x;
+                    rows[key].x = point.x;
+                    rows[key].xValues[xAxisIndex] = point.x;
                     
                     // Pies, funnels, geo maps etc. use point name in X row
                     if (!series.xAxis || series.exportKey === 'name') {
