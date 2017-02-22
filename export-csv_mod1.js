@@ -91,7 +91,7 @@
                     j = j + 1;
                 }
 
-                each(series.data, function (point, pIdx) {
+                each(series.options.data, function (point, pIdx) {
                     var key = pIdx, //var key = requireSorting ? point.x : pIdx,
                         prop,
                         val;
@@ -102,10 +102,10 @@
                         // Generate the row
                         rows[key] = [];
                         // Contain the X values from one or more X axes
-                        rows[key].xValues = [];
+                        // rows[key].xValues = [];
                     }
-                    rows[key].x = point.x;
-                    rows[key].xValues[xAxisIndex] = point.x;
+                    rows[key].x = point[0]; // rows[key].x = point.x;
+                    // rows[key].xValues[xAxisIndex] = point.x;
                     
                     // Pies, funnels, geo maps etc. use point name in X row
                     if (!series.xAxis || series.exportKey === 'name') {
@@ -114,7 +114,7 @@
 
                     while (j < valueCount) {
                         prop = pointArrayMap[j]; // y, z etc
-                        val = point[prop];
+                        val = point[1];
                         rows[key][i + j] = pick(categoryMap[prop][val], val); // Pick a Y axis category if present
                         j = j + 1;
                     }
